@@ -18,13 +18,10 @@ Ajusta el parámetro `dates=` del link de Google Calendar (formato
 `YYYYMMDDTHHMMSS/YYYYMMDDTHHMMSS`) y el `location=`.
 
 ## 4. Fotos
-Reemplaza estos archivos SVG placeholder por tus fotos reales (mismo nombre,
-o cambia el `src` en `index.html`). Recomendado: JPG/WebP comprimido con
-[Squoosh](https://squoosh.app):
-- `assets/images/hero-bg.svg` → foto de portada
-- `assets/images/galeria-1.svg` … `galeria-6.svg` → galería "Nosotros" (puedes agregar más `swiper-slide` copiando el patrón)
-- `assets/images/ceremonia.svg`, `recepcion.svg` → fotos/iconos de las tarjetas de evento
-- `assets/images/qr-placeholder.svg` → tu QR real de transferencia (genera uno gratis en cualquier web de QR)
+- `assets/images/hero-bg.jpeg` → foto de portada (ya reemplazada)
+- `assets/images/galeria-1.jpeg` … `galeria-7.jpeg` → galería "Nosotros" (ya reemplazadas; para agregar más, copia el patrón de `swiper-slide`)
+- `assets/images/ceremonia.gif`, `recepcion.gif` → íconos de las tarjetas de evento (ya reemplazados)
+- `assets/images/qr.jpeg` → QR real de transferencia (ya reemplazado)
 - `assets/icons/favicon.svg` → tu propio monograma (opcional)
 - `assets/images/sello.svg` → el sello del sobre animado. Si nos pasas tu propia
   imagen (ideal: circular o cuadrada, buena resolución, fondo simple), la

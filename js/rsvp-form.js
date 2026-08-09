@@ -13,6 +13,7 @@ export function initRsvpForm() {
   if (!form) return;
 
   const success = document.getElementById('rsvp-success');
+  const successMsg = document.getElementById('rsvp-success-msg');
   const networkError = document.getElementById('rsvp-network-error');
   const nombreGroup = form.querySelector('#rsvp-nombre').closest('.form-group');
   const radioGroup = form.querySelector('.form-group--radio');
@@ -84,10 +85,15 @@ export function initRsvpForm() {
       });
       if (!res.ok) throw new Error('Error al enviar');
 
+      const asiste = form.querySelector('input[name="asistencia"]:checked').value === 'si';
+      successMsg.textContent = asiste
+        ? '¡Gracias por confirmar! Nos vemos en la boda.'
+        : 'Gracias por avisarnos. ¡Te vamos a extrañar ese día!';
+
       form.hidden = true;
       success.hidden = false;
 
-      if (window.confetti) {
+      if (asiste && window.confetti) {
         window.confetti({
           particleCount: 120,
           spread: 80,

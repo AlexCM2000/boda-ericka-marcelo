@@ -518,9 +518,13 @@ img { border-radius: var(--radius); }
 
 .hero__scroll {
   position: absolute;
-  bottom: var(--space-md);
+  bottom: calc(var(--space-md) - 12px);
   left: 50%;
   transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
   color: var(--color-white);
   font-size: 1.4rem;
   animation: bounce 2s infinite;

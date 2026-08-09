@@ -72,14 +72,14 @@ function initEnvelope(audioPlayer) {
       // continuo, sin salto entre "sobre" y "contenido".
       const tl = window.gsap.timeline({ onComplete: finish });
       tl.to(seal, { scale: 0, opacity: 0, duration: 0.3, ease: 'back.in(2)' })
-        .to(flap, { rotateX: -170, duration: 0.9, ease: 'power3.inOut' }, '-=0.05')
+        .to(flap, { rotateX: -170, duration: 1.1, ease: 'power3.inOut' }, '-=0.05')
         .set(card, { zIndex: 6 })
-        .to({}, { duration: 0.7 }) // pausa: la tarjeta se ve completa y quieta
+        .to({}, { duration: 1.5 }) // pausa larga: la tarjeta se ve completa y quieta
         .addLabel('salida')
-        .to(card, { y: '-130%', opacity: 0, duration: 0.9, ease: 'power2.inOut' }, 'salida')
+        .to(card, { y: '-130%', opacity: 0, duration: 1.1, ease: 'power2.inOut' }, 'salida')
         .call(revealHero, [], 'salida')
-        .to([pocket, back], { opacity: 0, duration: 0.7 }, 'salida+=0.15')
-        .to(envelope, { opacity: 0, duration: 0.8 }, 'salida+=0.35');
+        .to([pocket, back], { opacity: 0, duration: 0.9 }, 'salida+=0.2')
+        .to(envelope, { opacity: 0, duration: 1, ease: 'sine.out' }, 'salida+=0.45');
     } else {
       // Sin GSAP: igual mostramos la tarjeta al frente antes de desvanecer todo.
       card.style.zIndex = '6';
