@@ -316,7 +316,7 @@ img { border-radius: var(--radius); }
 .envelope__card .envelope__names {
   font-family: var(--font-script);
   font-weight: 400;
-  font-size: clamp(1.4rem, 6.5vw, 2.1rem);
+  font-size: clamp(1.15rem, 6.5vw, 2.1rem);
   line-height: 1;
   color: var(--color-text);
 }
@@ -329,11 +329,20 @@ img { border-radius: var(--radius); }
   color: var(--color-text-soft);
 }
 
+/* Posicionada absoluta (no ocupa espacio en el flujo) y limitada por
+   max-height, para que en tarjetas chicas (pantallas angostas) se achique
+   junto con el resto en vez de recortarse contra el "overflow:hidden" de
+   la tarjeta. */
 .envelope__card-flowers {
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+  transform: translateX(-50%);
   width: 55%;
-  max-width: 120px;
-  height: auto;
-  margin-top: 0.7em;
+  max-width: 110px;
+  max-height: 26%;
+  object-fit: contain;
+  pointer-events: none;
 }
 
 .envelope__pocket {
