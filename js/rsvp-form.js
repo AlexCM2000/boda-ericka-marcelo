@@ -21,11 +21,18 @@ export function initRsvpForm() {
   const acompanantesGroup = document.getElementById('rsvp-acompanantes-group');
   const submitBtn = form.querySelector('button[type="submit"]');
 
-  // El campo "cuantas personas asistiran" solo importa si la respuesta es "si".
+  // El campo "cuantas personas asistiran" solo importa si la respuesta es
+  // "si". Si es "no", se fuerza a 0 (aunque la invitacion tenga varios
+  // pases) para que no quede un numero viejo dando vueltas en el envio.
   function syncAcompanantesVisibility() {
     const asistencia = form.querySelector('input[name="asistencia"]:checked');
     const asiste = asistencia && asistencia.value === 'si';
     acompanantesGroup.hidden = !asiste;
+    if (asiste) {
+      if (acompanantesInput.value === '0') acompanantesInput.value = acompanantesInput.max;
+    } else {
+      acompanantesInput.value = '0';
+    }
   }
   form.querySelectorAll('input[name="asistencia"]').forEach((r) => {
     r.addEventListener('change', () => {
