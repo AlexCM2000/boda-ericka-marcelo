@@ -35,6 +35,7 @@ function initEnvelope(audioPlayer) {
 
   function revealHero() {
     if (hero) hero.classList.add('is-revealed');
+    showScrollNext();
   }
 
   function finish() {
@@ -88,6 +89,35 @@ function initEnvelope(audioPlayer) {
       setTimeout(finish, 1400);
     }
   }, { once: true });
+}
+
+// ===================== Boton flotante "bajar" =====================
+// Aparece al abrir el sobre y se mantiene fijo en pantalla durante todo el
+// recorrido (a diferencia de la version anterior, que solo vivia en la
+// portada). Se oculta solo cerca del pie de pagina, donde ya no hay a donde
+// bajar.
+function showScrollNext() {
+  const btn = document.getElementById('scroll-next');
+  if (!btn) return;
+  btn.hidden = false;
+  requestAnimationFrame(() => requestAnimationFrame(() => btn.classList.add('is-visible')));
+}
+
+function initScrollNext() {
+  const btn = document.getElementById('scroll-next');
+  const footer = document.querySelector('.footer');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    window.scrollBy({ top: window.innerHeight * 0.9, behavior: 'smooth' });
+  });
+
+  if (footer && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(([entry]) => {
+      btn.classList.toggle('is-visible', !entry.isIntersecting && !btn.hidden);
+    }, { threshold: 0.1 });
+    observer.observe(footer);
+  }
 }
 
 // ===================== Petalos cayendo (fondo del sobre) =====================
@@ -277,6 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initUrlParams();
   initCountdown();
   initEnvelope(audioPlayer);
+  initScrollNext();
   initPetals();
   initCopyAccount();
   initMapModal();

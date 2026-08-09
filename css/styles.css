@@ -433,6 +433,38 @@ img { border-radius: var(--radius); }
 
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* Boton flotante "bajar": el circulo (area de toque) queda siempre fijo en
+   su lugar; solo el icono de adentro se mueve con el pulso. Antes el bounce
+   animaba el propio link, asi que el punto donde tocabas se movia todo el
+   tiempo y costaba acertarle, sobre todo en celular. */
+.scroll-next {
+  position: fixed;
+  left: var(--space-sm);
+  bottom: var(--space-sm);
+  z-index: 400;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(38, 44, 34, 0.55);
+  color: var(--color-white);
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+.scroll-next.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.scroll-next i { animation: scroll-next-pulse 2s ease-in-out infinite; }
+
+@keyframes scroll-next-pulse {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(4px); opacity: 0.7; }
+}
+
 /* ===================== Hero ===================== */
 .hero {
   position: relative;
@@ -514,29 +546,6 @@ img { border-radius: var(--radius); }
   margin-top: var(--space-sm);
   letter-spacing: 3px;
   font-size: 1rem;
-}
-
-.hero__scroll {
-  position: absolute;
-  bottom: calc(var(--space-md) - 12px);
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px;
-  color: var(--color-white);
-  font-size: 1.4rem;
-  animation: bounce 2s infinite;
-  opacity: 0;
-  transition: opacity 1s ease;
-  transition-delay: 0.9s;
-}
-.hero.is-revealed .hero__scroll { opacity: 1; }
-
-@keyframes bounce {
-  0%, 100% { transform: translate(-50%, 0); }
-  50% { transform: translate(-50%, 10px); }
 }
 
 /* ===================== Countdown ===================== */
