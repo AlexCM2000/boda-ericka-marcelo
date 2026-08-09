@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Marcelo &amp; Ericka | Nos casamos</title>
+<meta name="description" content="Invitación digital de la boda de Marcelo &amp; Ericka — 12 de Septiembre, 2026.">
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Phosphor Icons (linea fina, elegante) -->
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+
+<!-- AOS (animaciones al scroll) -->
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+<!-- Swiper (galería) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+<!-- GLightbox (zoom de fotos) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+
+<!-- CSS propio -->
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ===================== PRELOADER ===================== -->
+<div class="preloader" aria-hidden="true">
+  <svg class="preloader__monogram" viewBox="0 0 200 200">
+    <circle class="preloader__circle" cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <text x="100" y="112" text-anchor="middle" class="preloader__letters">M &amp; E</text>
+  </svg>
+</div>
+
+<!-- ===================== SOBRE / PANTALLA DE ENTRADA ===================== -->
+<div class="envelope" id="envelope">
+  <div class="petals" id="petals" aria-hidden="true"></div>
+  <div class="envelope__scene">
+    <div class="envelope__box" id="envelope-box">
+      <div class="envelope__back">
+        <img src="assets/images/paper-sage.svg" alt="" class="envelope__texture-img">
+      </div>
+      <div class="envelope__card" id="envelope-card">
+        <img src="assets/images/paper-opalina.svg" alt="" class="envelope__card-texture">
+        <p class="envelope__eyebrow">Nos casamos</p>
+        <h1 class="envelope__names">Marcelo <span>&amp;</span> Ericka</h1>
+        <p class="envelope__date">12 · 09 · 2026</p>
+      </div>
+      <div class="envelope__pocket" id="envelope-pocket">
+        <img src="assets/images/paper-sage.svg" alt="" class="envelope__texture-img">
+      </div>
+      <div class="envelope__flap" id="envelope-flap">
+        <img src="assets/images/paper-sage.svg" alt="" class="envelope__texture-img">
+      </div>
+      <!-- TODO: reemplaza assets/images/sello.svg por tu propia imagen del sello (ideal: circular, fondo transparente) -->
+      <button class="envelope__seal" id="btn-ingresar" type="button" aria-label="Abrir invitación">
+        <img src="assets/images/sello.png" alt="" class="envelope__seal-img">
+      </button>
+    </div>
+  </div>
+  <p class="envelope__hint">Toca el sello para abrir</p>
+</div>
+
+<!-- Audio de fondo: reemplaza assets/audio/cancion.mp3 con tu canción -->
+<audio id="bg-music" loop preload="none">
+  <source src="assets/audio/cancion.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-toggle" id="music-toggle" aria-label="Reproducir música de fondo" aria-pressed="false">
+  <i class="ph-light ph-vinyl-record"></i>
+</button>
+
+<main id="main-content">
+
+  <!-- ===================== 1. PORTADA / HERO ===================== -->
+  <section id="portada" class="hero">
+    <img class="hero__bg" src="assets/images/hero-bg.jpeg" alt="Foto de portada de la pareja">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <p class="hero__eyebrow">Nuestra boda</p>
+      <h1 class="hero__names">Marcelo <span>&amp;</span> Ericka</h1>
+      <p class="hero__date">12 de Septiembre, 2026</p>
+      <a href="#fecha" class="hero__scroll" aria-label="Bajar a la siguiente sección">
+        <i class="ph-light ph-caret-down"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== 2. FECHA + CUENTA REGRESIVA ===================== -->
+  <section id="fecha" class="section countdown-section">
+    <div class="container">
+      <p class="eyebrow" data-aos="fade-up">Guarda la fecha</p>
+      <h2 class="section-title" data-aos="fade-up">12 de Septiembre, 2026</h2>
+
+      <div class="countdown" id="countdown" data-aos="fade-up" data-aos-delay="150">
+        <div class="countdown__box">
+          <span class="countdown__number" id="cd-days">00</span>
+          <span class="countdown__label">Días</span>
+        </div>
+        <div class="countdown__box">
+          <span class="countdown__number" id="cd-hours">00</span>
+          <span class="countdown__label">Horas</span>
+        </div>
+        <div class="countdown__box">
+          <span class="countdown__number" id="cd-minutes">00</span>
+          <span class="countdown__label">Min</span>
+        </div>
+        <div class="countdown__box">
+          <span class="countdown__number" id="cd-seconds">00</span>
+          <span class="countdown__label">Seg</span>
+        </div>
+      </div>
+
+      <a class="btn btn--solid" data-aos="fade-up" data-aos-delay="250"
+         href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Marcelo+%26+Ericka&dates=20260912T110000/20260912T230000&location=Av.+Sim%C3%B3n+Bolivar%2C+C.+Uruguay+%23777%2C+El+Alto%2C+Bolivia&details=%C2%A1Nos+casamos%21+Ceremonia+11%3A00+en+la+iglesia%2C+recepci%C3%B3n+17%3A00."
+         target="_blank" rel="noopener">
+        <i class="ph-light ph-calendar-plus"></i> Agendar evento
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== 3. MENSAJE PERSONALIZADO ===================== -->
+  <section id="mensaje" class="section message-section">
+    <div class="container container--narrow">
+      <p class="message__text" data-aos="fade-up" data-aos-duration="800">
+        Guiados por la fe y el amor de Dios, iniciamos este nuevo camino juntos.
+      </p>
+      <p class="message__verse" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+        "Uno solo puede ser vencido, pero dos pueden resistir.<br>
+        ¡El cordón de tres dobleces no se rompe fácilmente!"<br>
+        <span>Eclesiastés 4:12</span>
+      </p>
+      <p class="message__to" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
+        Querid<span id="invitado-genero">o</span>,
+        <strong class="nombre-invitado">Invitado especial</strong>
+      </p>
+      <p class="message__pases" data-aos="fade-up" data-aos-duration="800" data-aos-delay="250">
+        Tienes <strong><span class="num-pases">1</span> pase(s)</strong> reservado(s) para acompañarnos.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== 4. PADRES Y PADRINOS ===================== -->
+  <section id="familia" class="section family-section">
+    <div class="container">
+      <p class="eyebrow" data-aos="fade-up">Con la bendición de</p>
+      <h2 class="section-title" data-aos="fade-up">Nuestra familia</h2>
+
+      <div class="family-grid">
+        <div class="family-block" data-aos="fade-up" data-aos-delay="0">
+          <h3>Padres del novio</h3>
+          <p>Julio Bernabe Coyauri</p>
+          <p>Mercedes Huanca Lipa</p>
+        </div>
+        <div class="family-block" data-aos="fade-up" data-aos-delay="150">
+          <h3>En memoria de los padres de la novia</h3>
+          <p>Cecilio Inca Quispe †</p>
+          <p>Andrea Flores Callisaya †</p>
+        </div>
+        <div class="family-block" data-aos="fade-up" data-aos-delay="300">
+          <h3>Consejeros</h3>
+          <p>Israel Matta Colque</p>
+          <p>Mariela Ruth Cantunta de Mata</p>
+        </div>
+        <div class="family-block" data-aos="fade-up" data-aos-delay="450">
+          <h3>Padrinos de torta</h3>
+          <p>Dr. Rubén Efraín Mamani Juli</p>
+          <p>Dra. Ivanka Feve Quispe Ticona</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5. CEREMONIA Y RECEPCIÓN ===================== -->
+  <section id="evento" class="section event-section">
+    <div class="container">
+      <p class="eyebrow" data-aos="fade-up">Los esperamos en</p>
+      <h2 class="section-title" data-aos="fade-up">Ceremonia &amp; Recepción</h2>
+
+      <div class="event-grid">
+        <article class="event-card" data-aos="fade-right">
+          <img src="assets/images/ceremonia.gif" alt="Icono de ceremonia" class="event-card__icon">
+          <span class="event-card__time">11:00 hrs</span>
+          <h3>Ceremonia religiosa</h3>
+          <p>Iglesia "Más Que Vencedores"<br>Av. Simón Bolívar, C. Uruguay #777<br>Parada 8, El Alto (bajando 5 cuadras)</p>
+          <button class="btn btn--outline btn--small" type="button"
+                  data-lat="-16.486204" data-lng="-68.2413298" data-name="Iglesia Más Que Vencedores">
+            <i class="ph-light ph-map-pin"></i> Ver ubicación
+          </button>
+        </article>
+
+        <article class="event-card" data-aos="fade-left">
+          <img src="assets/images/recepcion.gif" alt="Icono de recepción" class="event-card__icon">
+          <span class="event-card__time">17:00 hrs</span>
+          <h3>Recepción</h3>
+          <p><strong>Salón Femax</strong><br>Calle José Arzabe<br>Villa Esperanza, El Alto</p>
+          <button class="btn btn--outline btn--small" type="button"
+                  data-lat="-16.488958" data-lng="-68.199251" data-name="Salón Femax">
+            <i class="ph-light ph-map-pin"></i> Ver ubicación
+          </button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 6. DRESS CODE ===================== -->
+  <section id="vestimenta" class="section dresscode-section">
+    <div class="container container--narrow">
+      <p class="eyebrow" data-aos="fade-up">Código de vestimenta</p>
+      <h2 class="section-title" data-aos="fade-up">Formal</h2>
+      <div class="dresscode-icons" data-aos="fade-up" data-aos-delay="150">
+        <div class="dresscode-icon">
+          <span class="dresscode-icon__badge">
+            <img class="dresscode-icon__img" src="assets/images/traje.gif" alt="" loading="lazy">
+          </span>
+          <span>Traje formal</span>
+        </div>
+        <div class="dresscode-icon">
+          <span class="dresscode-icon__badge">
+            <img class="dresscode-icon__img" src="assets/images/vestido.gif" alt="" loading="lazy">
+          </span>
+          <span>Vestido largo</span>
+        </div>
+      </div>
+      <p class="dresscode-note" data-aos="fade-up" data-aos-delay="250">
+        Evitar el color blanco y tonos verde sage, reservados para la novia.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== 7. ITINERARIO ===================== -->
+  <section id="itinerario" class="section timeline-section">
+    <div class="container container--narrow">
+      <p class="eyebrow" data-aos="fade-up">¿Cómo será el día?</p>
+      <h2 class="section-title" data-aos="fade-up">Itinerario</h2>
+
+      <div class="timeline" id="timeline">
+        <svg class="timeline__line" id="timeline-line" preserveAspectRatio="none" aria-hidden="true">
+          <path id="timeline-path" d="" fill="none" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <ul class="timeline__list">
+          <li class="timeline__item" data-aos="fade-right">
+            <div class="timeline__dot"><img src="assets/images/cena.gif" class="gif-recolor" alt="" loading="lazy"></div>
+            <div class="timeline__content">
+              <span class="timeline__time">10:00</span>
+              <h3>Sorpresa sabrosa</h3>
+            </div>
+          </li>
+          <li class="timeline__item" data-aos="fade-left">
+            <div class="timeline__dot"><img src="assets/images/ceremonia.gif" alt="" loading="lazy"></div>
+            <div class="timeline__content">
+              <span class="timeline__time">11:00</span>
+              <h3>Ceremonia religiosa</h3>
+            </div>
+          </li>
+          <li class="timeline__item" data-aos="fade-right">
+            <div class="timeline__dot"><img src="assets/images/recepcion-2.gif" class="gif-recolor" alt="" loading="lazy"></div>
+            <div class="timeline__content">
+              <span class="timeline__time">17:15</span>
+              <h3>Ingreso al local</h3>
+            </div>
+          </li>
+          <li class="timeline__item" data-aos="fade-left">
+            <div class="timeline__dot"><img src="assets/images/recepcion.gif" alt="" loading="lazy"></div>
+            <div class="timeline__content">
+              <span class="timeline__time">17:40</span>
+              <h3>Brindis</h3>
+            </div>
+          </li>
+          <li class="timeline__item" data-aos="fade-right">
+            <div class="timeline__dot"><img src="assets/images/vals.gif" class="gif-recolor" alt="" loading="lazy"></div>
+            <div class="timeline__content">
+              <span class="timeline__time">18:00</span>
+              <h3>Vals</h3>
+            </div>
+          </li>
+          <li class="timeline__item" data-aos="fade-left">
+            <div class="timeline__dot"><img src="assets/images/cena.gif" class="gif-recolor" alt="" loading="lazy"></div>
+            <div class="timeline__content">
+              <span class="timeline__time">20:40</span>
+              <h3>Cena</h3>
+            </div>
+          </li>
+          <li class="timeline__item" data-aos="fade-right">
+            <div class="timeline__dot"><img src="assets/images/torta.gif" class="gif-recolor" alt="" loading="lazy"></div>
+            <div class="timeline__content">
+              <span class="timeline__time">21:25</span>
+              <h3>Torta</h3>
+            </div>
+          </li>
+          <li class="timeline__item" data-aos="fade-left">
+            <div class="timeline__dot"><img src="assets/images/felices-siempre.gif" class="gif-recolor" alt="" loading="lazy"></div>
+            <div class="timeline__content">
+              <span class="timeline__time">23:00</span>
+              <h3>Oración final</h3>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 8. GALERÍA "NOSOTROS" ===================== -->
+  <section id="galeria" class="section gallery-section">
+    <div class="container">
+      <p class="eyebrow" data-aos="fade-up">Nuestra historia</p>
+      <h2 class="section-title" data-aos="fade-up">Nosotros</h2>
+    </div>
+
+    <div class="swiper gallery-swiper" data-aos="fade-up" data-aos-delay="150">
+      <div class="swiper-wrapper">
+        <!-- TODO: reemplaza cada assets/images/galeria-N.svg por tus fotos reales -->
+        <div class="swiper-slide">
+          <a href="assets/images/galeria-1.svg" class="glightbox" data-gallery="nosotros">
+            <img src="assets/images/galeria-1.svg" alt="Foto de la pareja 1" loading="lazy">
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="assets/images/galeria-2.svg" class="glightbox" data-gallery="nosotros">
+            <img src="assets/images/galeria-2.svg" alt="Foto de la pareja 2" loading="lazy">
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="assets/images/galeria-3.svg" class="glightbox" data-gallery="nosotros">
+            <img src="assets/images/galeria-3.svg" alt="Foto de la pareja 3" loading="lazy">
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="assets/images/galeria-4.svg" class="glightbox" data-gallery="nosotros">
+            <img src="assets/images/galeria-4.svg" alt="Foto de la pareja 4" loading="lazy">
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="assets/images/galeria-5.svg" class="glightbox" data-gallery="nosotros">
+            <img src="assets/images/galeria-5.svg" alt="Foto de la pareja 5" loading="lazy">
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="assets/images/galeria-6.svg" class="glightbox" data-gallery="nosotros">
+            <img src="assets/images/galeria-6.svg" alt="Foto de la pareja 6" loading="lazy">
+          </a>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <!-- ===================== 9. COMPARTIR FOTOS ===================== -->
+  <section id="compartir" class="section share-section">
+    <div class="container container--narrow" data-aos="fade-up">
+      <i class="ph-light ph-images share-section__icon"></i>
+      <h2 class="section-title">Comparte tus fotos</h2>
+      <p>Ayúdanos a reunir todos los recuerdos del día subiendo tus fotos a nuestro álbum compartido.</p>
+      <!-- TODO: reemplaza "#" por el link real de tu álbum de Google Photos -->
+      <a href="#" class="btn btn--solid" target="_blank" rel="noopener">
+        <i class="ph-light ph-upload-simple"></i> Subir fotos
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== 10. EVENTO SOLO PARA ADULTOS ===================== -->
+  <section id="aviso" class="section notice-section">
+    <div class="container container--narrow" data-aos="fade-up">
+      <i class="ph-light ph-wine share-section__icon"></i>
+      <h2 class="section-title">Evento solo para adultos</h2>
+      <p>Con mucho cariño, este será un evento exclusivo para personas mayores de 18 años.</p>
+    </div>
+  </section>
+
+  <!-- ===================== 11. MESA DE REGALOS ===================== -->
+  <section id="regalos" class="section gifts-section">
+    <div class="container container--narrow">
+      <p class="eyebrow" data-aos="fade-up">Con cariño</p>
+      <h2 class="section-title" data-aos="fade-up"><i class="ph-light ph-gift"></i> Mesa de regalos</h2>
+      <p data-aos="fade-up" data-aos-delay="100">
+        Tu presencia es nuestro mejor regalo. Si deseas tener un detalle con nosotros,
+        aquí tienes nuestros datos.
+      </p>
+
+      <div class="gift-card" data-aos="fade-up" data-aos-delay="200">
+        <img src="assets/images/qr.jpeg" alt="Código QR para transferencia" class="gift-card__qr">
+        <div class="gift-card__info">
+          <p><strong>Banco:</strong> Banco Solidario S.A.</p>
+          <p><strong>Titular:</strong> Ericka Genoveva Inca Flores</p>
+          <p><strong>Cuenta:</strong> <span id="account-number">2036653000002</span></p>
+          <button class="btn btn--outline btn--small" id="copy-account" type="button">
+            <i class="ph-light ph-copy"></i> Copiar número de cuenta
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 12. RSVP ===================== -->
+  <section id="rsvp" class="section rsvp-section">
+    <div class="container container--narrow">
+      <p class="eyebrow" data-aos="fade-up">Confírmanos</p>
+      <h2 class="section-title" data-aos="fade-up">¿Nos acompañas?</h2>
+
+      <form class="rsvp-form" id="rsvp-form" action="https://formspree.io/f/xppaqnzj" method="POST" data-aos="fade-up" data-aos-delay="150" novalidate>
+        <input type="hidden" name="_subject" value="Nueva confirmación RSVP - Boda Marcelo & Ericka">
+        <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off">
+
+        <div class="form-group">
+          <label for="rsvp-nombre">Nombre completo</label>
+          <input type="text" id="rsvp-nombre" name="nombre" required>
+          <span class="form-error">Por favor escribe tu nombre</span>
+        </div>
+
+        <fieldset class="form-group form-group--radio">
+          <legend>¿Podrás acompañarnos?</legend>
+          <label class="radio-option">
+            <input type="radio" name="asistencia" value="si" required> Sí, ahí estaré
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="asistencia" value="no"> No podré, lo siento
+          </label>
+        </fieldset>
+
+        <div class="form-group" id="rsvp-acompanantes-group">
+          <label for="rsvp-acompanantes">¿Cuántas personas asistirán en total? (contándote)</label>
+          <input type="number" id="rsvp-acompanantes" name="acompanantes" min="1" value="1" inputmode="numeric">
+          <p class="form-hint">Tienes <strong><span class="num-pases">1</span> pase(s)</strong> reservado(s) en esta invitación.</p>
+          <span class="form-error">Indica cuántas personas asistirán (no puede superar tus pases)</span>
+        </div>
+
+        <div class="form-group">
+          <label for="rsvp-mensaje">Mensaje para los novios (opcional)</label>
+          <textarea id="rsvp-mensaje" name="mensaje" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--solid">
+          <i class="ph-light ph-paper-plane-tilt"></i> Enviar confirmación
+        </button>
+
+        <p class="form-network-error" id="rsvp-network-error" hidden>
+          No se pudo enviar. Revisa tu conexión e intenta de nuevo.
+        </p>
+      </form>
+
+      <div class="rsvp-success" id="rsvp-success" hidden>
+        <i class="ph-light ph-heart"></i>
+        <p>¡Gracias por confirmar! Nos vemos en la boda.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER + REPRODUCTOR ===================== -->
+<footer class="footer">
+  <p class="footer__names">Marcelo <span>&amp;</span> Ericka</p>
+  <p class="footer__date">12 de Septiembre, 2026</p>
+  <a href="#portada" class="footer__top" aria-label="Volver arriba"><i class="ph-light ph-caret-up"></i></a>
+</footer>
+
+<!-- ===================== MODAL DE MAPA ===================== -->
+<div class="modal" id="map-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="map-modal-title">
+  <div class="modal__overlay" data-close></div>
+  <div class="modal__box">
+    <div class="modal__bar">
+      <h2 id="map-modal-title" class="modal__title">Ubicación</h2>
+      <button class="modal__close" data-close type="button" aria-label="Cerrar mapa">
+        <i class="ph-light ph-x"></i>
+      </button>
+    </div>
+    <iframe id="map-frame" src="" title="Mapa de ubicación" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <a id="map-directions" class="modal__directions" href="#" target="_blank" rel="noopener">
+      <i class="ph-light ph-navigation-arrow"></i> Cómo llegar (Google Maps)
+    </a>
+  </div>
+</div>
+
+<!-- Toast de confirmación -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ===================== LIBRERÍAS (CDN) ===================== -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<!-- ===================== JS PROPIO ===================== -->
+<script type="module" src="js/main.js"></script>
+
+</body>
+</html>

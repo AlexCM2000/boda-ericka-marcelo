@@ -1,0 +1,37 @@
+:root {
+  /* ===== Paleta: Verde sage ===== */
+  --color-bg: #EFEFE9;
+  --color-bg-alt: #E4E6DC;
+  --color-card: #FBFBF8;
+  --color-accent: #8A9A7E;
+  --color-accent-dark: #6E7D64;
+  --color-accent-light: #C9D2C0;
+  --color-text: #4A4A4A;
+  --color-text-soft: #7A7A72;
+  --color-white: #FFFFFF;
+  --color-overlay: rgba(38, 44, 34, 0.55);
+
+  /* Petalos (animacion del sobre) */
+  --petal-a: #F3EFE6;
+  --petal-b: #D9B8AE;
+  --petal-c: #C9D2C0;
+
+  /* ===== Tipografia ===== */
+  --font-script: 'Parisienne', cursive;
+  --font-body: 'Montserrat', sans-serif;
+
+  /* ===== Espaciado ===== */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 7rem;
+
+  /* ===== Otros ===== */
+  --radius: 6px;
+  --radius-lg: 16px;
+  --shadow: 0 10px 30px rgba(74, 74, 74, 0.12);
+  --shadow-soft: 0 4px 16px rgba(74, 74, 74, 0.08);
+  --transition-smooth: 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+  --max-width: 1100px;
+}

@@ -1,0 +1,1016 @@
+/* =========================================================
+   INVITACION DE BODA — Ana & Carlos
+   Paleta: Verde sage · Tipografia: Parisienne + Montserrat
+   ========================================================= */
+
+html, body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+body.no-scroll { overflow: hidden; }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+img { border-radius: var(--radius); }
+
+/* ===================== Layout genérico ===================== */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.container--narrow { max-width: 680px; }
+
+.section {
+  padding: var(--space-xl) 0;
+  text-align: center;
+}
+
+.section:nth-of-type(even) { background: var(--color-bg-alt); }
+
+.eyebrow {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.75rem;
+  color: var(--color-accent-dark);
+  margin-bottom: var(--space-xs);
+}
+
+.section-title {
+  font-family: var(--font-script);
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+.section-title i {
+  font-size: 0.55em;
+  color: var(--color-accent);
+  vertical-align: 0.1em;
+  margin-right: 0.1em;
+}
+
+/* ===================== Botones ===================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  padding: 0.9em 2em;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.35s ease;
+  cursor: pointer;
+}
+
+.btn--solid {
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+.btn--solid:hover { background: var(--color-accent-dark); transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+
+.btn--outline {
+  background: transparent;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent-dark);
+}
+.btn--outline:hover { background: var(--color-accent); color: var(--color-white); }
+
+.btn--small { padding: 0.6em 1.4em; font-size: 0.75rem; }
+
+/* ===================== Preloader ===================== */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease;
+}
+
+.preloader__monogram {
+  width: 120px;
+  height: 120px;
+  color: var(--color-accent);
+}
+
+.preloader__circle {
+  stroke-dasharray: 503;
+  stroke-dashoffset: 503;
+  animation: draw-circle 1.6s ease forwards infinite;
+}
+
+.preloader__letters {
+  font-family: var(--font-script);
+  font-size: 28px;
+  fill: var(--color-accent-dark);
+}
+
+@keyframes draw-circle {
+  0% { stroke-dashoffset: 503; }
+  60%, 100% { stroke-dashoffset: 0; }
+}
+
+/* ===================== Sobre / pantalla de entrada ===================== */
+.envelope {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  background:
+    radial-gradient(ellipse at 50% 28%, rgba(255, 255, 255, 0.07), transparent 55%),
+    radial-gradient(circle at 50% 42%, var(--color-accent), var(--color-accent-dark) 82%),
+    radial-gradient(ellipse at 50% 100%, rgba(0, 0, 0, 0.35), transparent 60%);
+  transition: opacity 0.7s ease;
+}
+.envelope.is-hidden { display: none; }
+
+.petals {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.petal-fall {
+  position: absolute;
+  top: -8%;
+  display: block;
+  animation-name: petal-drop;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.petal-sway {
+  display: block;
+  animation-name: petal-sway;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  will-change: transform;
+}
+
+.petal {
+  display: block;
+  border-radius: 0 100% 0 100%;
+  animation-name: petal-spin;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+@keyframes petal-drop {
+  from { transform: translateY(-10vh); }
+  to { transform: translateY(115vh); }
+}
+@keyframes petal-sway {
+  from { transform: translateX(calc(var(--sway, 16px) * -1)); }
+  to { transform: translateX(var(--sway, 16px)); }
+}
+@keyframes petal-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.envelope__scene {
+  position: relative;
+  z-index: 1;
+  width: min(84vw, 380px);
+  aspect-ratio: 3 / 2;
+  perspective: 1800px;
+}
+
+/* Sombra de contacto: da la sensacion de que el sobre reposa sobre una superficie */
+.envelope__scene::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -14px;
+  transform: translateX(-50%);
+  width: 86%;
+  height: 26px;
+  background: radial-gradient(ellipse at center, rgba(8, 12, 6, 0.5), rgba(8, 12, 6, 0) 72%);
+  filter: blur(3px);
+  z-index: -1;
+}
+
+.envelope__box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.envelope__back {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--color-accent-dark), #4f5c46);
+  box-shadow:
+    0 3px 6px rgba(15, 18, 10, 0.3),
+    0 16px 34px rgba(15, 18, 10, 0.35),
+    0 36px 60px rgba(15, 18, 10, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  z-index: 1;
+  transition: opacity 0.5s ease 0.5s;
+}
+
+/* Textura de papel del sobre (visible con el sobre cerrado): imagen real,
+   no background-image, por la misma razon que en la tarjeta interior. */
+.envelope__texture-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.envelope__card {
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  top: 34%;
+  bottom: 9%;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-sm);
+  background-color: #F5F0E4;
+
+  box-shadow:
+    0 10px 25px rgba(20, 24, 16, 0.28),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.65),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9),
+    inset 0 -1px 3px rgba(120, 110, 95, 0.15);
+}
+
+/* Papel opalina telada: imagen real (no CSS background), para que el navegador
+   la decodifique y dibuje como bitmap en vez de rasterizarla como fondo del layer. */
+.envelope__card-texture {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Sugiere el canto/grosor real del carton: una segunda hoja asomando detras */
+.envelope__card::before {
+  content: '';
+  position: absolute;
+  inset: 3px -3px -3px 3px;
+  z-index: -1;
+  border-radius: 3px;
+  background: var(--color-bg-alt);
+  box-shadow: 0 6px 12px rgba(20, 24, 16, 0.18);
+}
+
+.envelope__card .envelope__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.6rem;
+  color: var(--color-accent-dark);
+  margin-bottom: 0.4em;
+}
+
+.envelope__card .envelope__names {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(1.4rem, 6.5vw, 2.1rem);
+  line-height: 1;
+  color: var(--color-text);
+}
+.envelope__card .envelope__names span { opacity: 0.7; padding: 0 0.15em; }
+
+.envelope__card .envelope__date {
+  margin-top: 0.5em;
+  letter-spacing: 3px;
+  font-size: 0.75rem;
+  color: var(--color-text-soft);
+}
+
+.envelope__pocket {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: linear-gradient(160deg, var(--color-accent-dark), #4f5c46);
+  clip-path: polygon(0% 100%, 100% 100%, 100% 28%, 0% 28%);
+  transition: opacity 0.5s ease 0.4s;
+}
+
+/* Sombra que la solapa proyecta sobre el bolsillo, justo debajo del pliegue */
+.envelope__pocket::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  clip-path: inherit;
+  background: linear-gradient(180deg, rgba(10, 14, 8, 0.32) 0%, rgba(10, 14, 8, 0) 14%);
+  pointer-events: none;
+}
+
+.envelope__flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 66%;
+  z-index: 4;
+  background: linear-gradient(160deg, var(--color-accent), var(--color-accent-dark));
+  clip-path: polygon(0 0, 100% 0, 64% 100%, 36% 100%);
+  transform-origin: top center;
+  backface-visibility: hidden;
+  filter: drop-shadow(0 4px 8px rgba(20, 24, 16, 0.3));
+}
+
+/* Pliegue de la solapa: leve degrade que sugiere el doblez del papel real */
+.envelope__flap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  clip-path: inherit;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 10%),
+    linear-gradient(180deg, transparent 72%, rgba(10, 14, 8, 0.3) 100%);
+  pointer-events: none;
+}
+
+.envelope__seal {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  width: clamp(88px, 26vw, 116px);
+  height: clamp(88px, 26vw, 116px);
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+.envelope__seal:hover { transform: translate(-50%, -50%) scale(1.08); }
+.envelope__seal:focus-visible { outline: 2px solid var(--color-white); outline-offset: 3px; }
+
+.envelope__seal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.envelope__hint {
+  position: relative;
+  z-index: 1;
+  color: var(--color-white);
+  opacity: 0.85;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: hint-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes hint-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.95; }
+}
+
+/* Fallback sin GSAP: si la libreria no carga, el sobre simplemente se desvanece */
+.envelope.is-open { opacity: 0; pointer-events: none; }
+
+/* ===================== Reproductor flotante ===================== */
+.music-toggle {
+  position: fixed;
+  right: var(--space-sm);
+  bottom: var(--space-sm);
+  z-index: 400;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+.music-toggle i { animation: spin 3s linear infinite; animation-play-state: paused; }
+.music-toggle.playing i { animation-play-state: running; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ===================== Hero ===================== */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 1.6s ease, transform 2.2s ease;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--color-overlay), rgba(38,44,34,0.75));
+  opacity: 0;
+  transition: opacity 1.6s ease;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--color-white);
+  padding: var(--space-md);
+}
+
+/* El contenido del hero (foto, overlay y textos) arranca invisible y se
+   revela con un fundido/leve desplazamiento cuando se abre el sobre — ver
+   ".hero.is-revealed" y la llamada en js/main.js — en vez de aparecer de
+   golpe apenas el sobre desaparece. */
+.hero__eyebrow,
+.hero__names,
+.hero__date {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.hero.is-revealed .hero__bg { opacity: 1; transform: scale(1); }
+.hero.is-revealed .hero__overlay { opacity: 1; }
+.hero.is-revealed .hero__eyebrow { transition-delay: 0.35s; }
+.hero.is-revealed .hero__names { transition-delay: 0.55s; }
+.hero.is-revealed .hero__date { transition-delay: 0.75s; }
+.hero.is-revealed .hero__eyebrow,
+.hero.is-revealed .hero__names,
+.hero.is-revealed .hero__date {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.85rem;
+  margin-bottom: var(--space-sm);
+}
+
+.hero__names {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1;
+}
+.hero__names span { opacity: 0.8; padding: 0 0.2em; }
+
+.hero__date {
+  margin-top: var(--space-sm);
+  letter-spacing: 3px;
+  font-size: 1rem;
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-white);
+  font-size: 1.4rem;
+  animation: bounce 2s infinite;
+  opacity: 0;
+  transition: opacity 1s ease;
+  transition-delay: 0.9s;
+}
+.hero.is-revealed .hero__scroll { opacity: 1; }
+
+@keyframes bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 10px); }
+}
+
+/* ===================== Countdown ===================== */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-md);
+}
+
+.countdown__box {
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-sm) var(--space-md);
+  min-width: 90px;
+}
+
+.countdown__number {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 2.2rem;
+  color: var(--color-accent-dark);
+  transition: transform 0.25s ease;
+}
+.countdown__number.tick { transform: scale(1.15); }
+
+.countdown__label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: var(--color-text-soft);
+  margin-top: 0.3em;
+}
+
+/* ===================== Mensaje ===================== */
+.message__text {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.6vw, 1.4rem);
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+}
+
+.message__verse {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-soft);
+  margin-bottom: var(--space-md);
+}
+.message__verse span {
+  display: inline-block;
+  margin-top: 0.5em;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  color: var(--color-accent-dark);
+}
+
+.message__to { font-size: 1.1rem; margin-bottom: var(--space-xs); }
+.nombre-invitado { color: var(--color-accent-dark); }
+.message__pases { color: var(--color-text-soft); }
+
+/* ===================== Familia ===================== */
+.family-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.family-block h3 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  color: var(--color-accent-dark);
+  margin-bottom: var(--space-xs);
+}
+
+.family-block p { font-size: 1rem; line-height: 1.6; }
+
+/* ===================== Ceremonia / recepcion ===================== */
+.event-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .event-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.event-card {
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-md);
+}
+
+.event-card__icon {
+  display: block;
+  width: 100%;
+  max-width: 140px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin: 0 auto var(--space-sm);
+}
+
+.event-card__time {
+  display: inline-block;
+  color: var(--color-accent-dark);
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: var(--space-xs);
+}
+
+.event-card h3 { font-size: 1.3rem; margin-bottom: var(--space-xs); }
+.event-card p { color: var(--color-text-soft); margin-bottom: var(--space-sm); }
+
+/* ===================== Dress code ===================== */
+.dresscode-icons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  margin: var(--space-md) 0;
+}
+
+.dresscode-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.dresscode-icon i { font-size: 2.6rem; color: var(--color-accent); }
+.dresscode-icon__svg { width: 3rem; height: 3rem; color: var(--color-accent); }
+
+/* Circulo de fondo: mas grande que el GIF que contiene, para que el dibujo
+   (que llega casi hasta el borde del lienzo) no quede cortado por el circulo. */
+.dresscode-icon__badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  /* traje.gif / vestido.gif son siluetas blancas sobre fondo transparente:
+     necesitan un fondo de color para no perderse contra la pagina. */
+  background: linear-gradient(160deg, var(--color-accent), var(--color-accent-dark));
+}
+.dresscode-icon__img {
+  width: 62%;
+  height: 62%;
+  object-fit: contain;
+}
+.dresscode-icon span { font-size: 0.85rem; letter-spacing: 1px; }
+.dresscode-note { color: var(--color-text-soft); font-style: italic; }
+
+/* ===================== Itinerario / timeline ===================== */
+.timeline { position: relative; margin-top: var(--space-lg); }
+
+.timeline__line {
+  position: absolute;
+  left: 27px;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  color: var(--color-accent);
+  overflow: visible;
+}
+
+@media (min-width: 640px) {
+  .timeline__line { left: 50%; transform: translateX(-50%); }
+}
+
+.timeline__list { display: flex; flex-direction: column; gap: var(--space-lg); }
+
+.timeline__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding-left: 84px;
+}
+
+@media (min-width: 640px) {
+  .timeline__item { padding-left: 0; width: 50%; }
+  .timeline__item:nth-child(odd) { align-self: flex-start; flex-direction: row-reverse; text-align: right; padding-right: var(--space-lg); }
+  .timeline__item:nth-child(even) { align-self: flex-end; padding-left: var(--space-lg); }
+}
+
+/* Todos los puntos del itinerario comparten el mismo tamano (72px), tengan
+   icono o GIF, para que la linea se vea uniforme. Fondo claro (no verde):
+   los GIF de este set son ilustraciones en linea color sage, y sobre un
+   fondo verde igual de oscuro el dibujo se perdia por falta de contraste. */
+.timeline__dot {
+  position: absolute;
+  left: -8px;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--color-card);
+  border: 2px solid var(--color-accent-light);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-soft);
+  z-index: 1;
+}
+
+/* Imagen mas chica que el circulo que la contiene: el dibujo de estos GIF
+   llega casi al borde del lienzo, y al 100% quedaba cortado por el circulo. */
+.timeline__dot img {
+  width: 62%;
+  height: 62%;
+  object-fit: contain;
+}
+
+/* Este lote de GIF viene en tono dorado; se rota el matiz para que
+   coincidan con el verde sage del resto del sitio. */
+.gif-recolor {
+  filter: hue-rotate(40deg);
+}
+
+@media (min-width: 640px) {
+  .timeline__item:nth-child(odd) .timeline__dot { right: -36px; left: auto; }
+  .timeline__item:nth-child(even) .timeline__dot { left: -36px; }
+}
+
+.timeline__time {
+  display: block;
+  color: var(--color-accent-dark);
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.timeline__content h3 { font-size: 1.15rem; margin-top: 0.2em; }
+
+/* ===================== Galeria ===================== */
+.gallery-swiper { padding: 0 var(--space-md) var(--space-md); }
+.gallery-swiper .swiper-slide { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-soft); }
+.gallery-swiper img { width: 100%; height: 380px; object-fit: cover; border-radius: var(--radius-lg); }
+.gallery-swiper .swiper-pagination-bullet-active { background: var(--color-accent); }
+
+/* ===================== Compartir / aviso ===================== */
+.share-section__icon { font-size: 2.4rem; color: var(--color-accent); margin-bottom: var(--space-sm); }
+.share-section p, .notice-section p { color: var(--color-text-soft); margin: var(--space-sm) 0 var(--space-md); }
+
+/* ===================== Mesa de regalos ===================== */
+.gift-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .gift-card { flex-direction: row; text-align: left; }
+}
+
+.gift-card__qr {
+  width: 140px;
+  height: 140px;
+  flex-shrink: 0;
+  object-fit: cover;
+  background: #fff;
+  padding: 6px;
+  box-sizing: border-box;
+  border: 1px solid var(--color-accent-light);
+}
+.gift-card__info p { margin-bottom: 0.4em; }
+#account-number { font-weight: 600; letter-spacing: 1px; }
+
+/* ===================== RSVP ===================== */
+.rsvp-form { text-align: left; margin-top: var(--space-md); }
+
+.form-group { margin-bottom: var(--space-md); }
+
+.form-group label, .form-group legend {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-text-soft);
+  margin-bottom: 0.5em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea {
+  width: 100%;
+  padding: 0.8em 1em;
+  border: 1px solid var(--color-accent-light);
+  border-radius: var(--radius);
+  background: var(--color-card);
+  font-family: var(--font-body);
+}
+
+.form-group input[type="number"] { max-width: 120px; }
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.form-hint { font-size: 0.8rem; color: var(--color-text-soft); margin-top: 0.5em; }
+
+.form-network-error {
+  display: none;
+  text-align: center;
+  color: #C0554A;
+  font-size: 0.85rem;
+  margin-top: var(--space-sm);
+}
+.form-network-error.is-visible { display: block; }
+
+.form-group input.invalid, .form-group.invalid legend, .form-group.invalid input[type="number"] { border-color: #C0554A; animation: shake 0.4s; }
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.form-error { display: none; color: #C0554A; font-size: 0.8rem; margin-top: 0.4em; }
+.form-group.invalid .form-error { display: block; }
+
+.form-group--radio { border: none; padding: 0; }
+.radio-option { display: inline-flex; align-items: center; gap: 0.5em; margin-right: var(--space-md); text-transform: none; letter-spacing: 0; font-size: 0.95rem; color: var(--color-text); }
+.radio-option input { accent-color: var(--color-accent); }
+
+.rsvp-success {
+  text-align: center;
+  margin-top: var(--space-md);
+  color: var(--color-accent-dark);
+}
+.rsvp-success i { font-size: 2rem; margin-bottom: var(--space-xs); }
+
+/* ===================== Footer ===================== */
+.footer {
+  position: relative;
+  text-align: center;
+  padding: var(--space-lg) var(--space-md) calc(var(--space-lg) + 40px);
+  background: var(--color-accent-dark);
+  color: var(--color-white);
+}
+
+.footer__names {
+  font-family: var(--font-script);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+}
+.footer__names span { opacity: 0.7; padding: 0 0.2em; }
+.footer__date { letter-spacing: 3px; font-size: 0.85rem; opacity: 0.85; margin-top: 0.4em; }
+
+.footer__top {
+  position: absolute;
+  right: var(--space-md);
+  bottom: var(--space-md);
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ===================== Modal de mapa ===================== */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.modal.is-open { opacity: 1; visibility: visible; pointer-events: auto; }
+
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(38,44,34,0.72);
+  backdrop-filter: blur(3px);
+}
+
+.modal__box {
+  position: relative;
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: var(--shadow);
+  transform: scale(0.9) translateY(16px);
+  opacity: 0;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.35s ease;
+}
+.modal.is-open .modal__box { transform: scale(1) translateY(0); opacity: 1; }
+
+.modal__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-accent-light);
+}
+
+.modal__title {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--color-text);
+}
+
+.modal__box iframe { width: 100%; height: 55vh; border: 0; display: block; }
+
+.modal__close {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--color-bg-alt);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.25s ease;
+}
+.modal__close:hover { background: var(--color-accent-light); }
+
+.modal__directions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: var(--space-sm);
+  text-align: center;
+  background: var(--color-bg-alt);
+  color: var(--color-accent-dark);
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  border-top: 1px solid var(--color-accent-light);
+  transition: background 0.25s ease;
+}
+.modal__directions:hover { background: var(--color-accent-light); }
+
+/* ===================== Toast ===================== */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 90px;
+  transform: translate(-50%, 20px);
+  z-index: 900;
+  background: var(--color-accent-dark);
+  color: var(--color-white);
+  padding: 0.8em 1.4em;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.toast.is-visible { opacity: 1; transform: translate(-50%, 0); }

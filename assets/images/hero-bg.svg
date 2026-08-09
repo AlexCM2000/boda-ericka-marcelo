@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="heroGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9CA98F"/>
+      <stop offset="55%" stop-color="#7C8B70"/>
+      <stop offset="100%" stop-color="#4C5843"/>
+    </linearGradient>
+    <radialGradient id="heroGlow" cx="50%" cy="62%" r="55%">
+      <stop offset="0%" stop-color="#F3F5EE" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#F3F5EE" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="1600" fill="url(#heroGrad)"/>
+  <rect width="1200" height="1600" fill="url(#heroGlow)"/>
+
+  <!-- enredaderas -->
+  <g stroke="#E9EEDF" stroke-width="2.5" fill="none" opacity="0.32">
+    <path d="M110 1560 C 175 1310, 250 1160, 210 910 C 185 705, 270 555, 250 350 C 240 220, 160 120, 150 40"/>
+    <path d="M250 1230 C 315 1185, 375 1165, 430 1105"/>
+    <path d="M225 985 C 170 940, 115 920, 75 875"/>
+    <path d="M245 690 C 305 655, 355 635, 415 585"/>
+    <path d="M220 470 C 165 435, 120 415, 80 365"/>
+    <path d="M1090 40 C 1015 250, 955 375, 975 600 C 995 785, 905 905, 935 1090"/>
+    <path d="M960 340 C 900 390, 850 410, 800 460"/>
+    <path d="M980 640 C 1030 685, 1075 700, 1115 745"/>
+    <path d="M935 940 C 880 985, 840 1005, 790 1055"/>
+  </g>
+
+  <!-- flores pequeñas en las puntas de las ramas -->
+  <g fill="#F3F5EE" opacity="0.5">
+    <g transform="translate(430,1105)">
+      <circle cx="0" cy="-8" r="6"/><circle cx="7" cy="-3" r="6"/><circle cx="4" cy="6" r="6"/><circle cx="-4" cy="6" r="6"/><circle cx="-7" cy="-3" r="6"/>
+      <circle cx="0" cy="0" r="4" fill="#C9D2C0"/>
+    </g>
+    <g transform="translate(75,875) scale(0.85)">
+      <circle cx="0" cy="-8" r="6"/><circle cx="7" cy="-3" r="6"/><circle cx="4" cy="6" r="6"/><circle cx="-4" cy="6" r="6"/><circle cx="-7" cy="-3" r="6"/>
+      <circle cx="0" cy="0" r="4" fill="#C9D2C0"/>
+    </g>
+    <g transform="translate(415,585) scale(0.9)">
+      <circle cx="0" cy="-8" r="6"/><circle cx="7" cy="-3" r="6"/><circle cx="4" cy="6" r="6"/><circle cx="-4" cy="6" r="6"/><circle cx="-7" cy="-3" r="6"/>
+      <circle cx="0" cy="0" r="4" fill="#C9D2C0"/>
+    </g>
+    <g transform="translate(80,365) scale(0.8)">
+      <circle cx="0" cy="-8" r="6"/><circle cx="7" cy="-3" r="6"/><circle cx="4" cy="6" r="6"/><circle cx="-4" cy="6" r="6"/><circle cx="-7" cy="-3" r="6"/>
+      <circle cx="0" cy="0" r="4" fill="#C9D2C0"/>
+    </g>
+    <g transform="translate(800,460) scale(0.9)">
+      <circle cx="0" cy="-8" r="6"/><circle cx="7" cy="-3" r="6"/><circle cx="4" cy="6" r="6"/><circle cx="-4" cy="6" r="6"/><circle cx="-7" cy="-3" r="6"/>
+      <circle cx="0" cy="0" r="4" fill="#C9D2C0"/>
+    </g>
+    <g transform="translate(1115,745) scale(0.85)">
+      <circle cx="0" cy="-8" r="6"/><circle cx="7" cy="-3" r="6"/><circle cx="4" cy="6" r="6"/><circle cx="-4" cy="6" r="6"/><circle cx="-7" cy="-3" r="6"/>
+      <circle cx="0" cy="0" r="4" fill="#C9D2C0"/>
+    </g>
+    <g transform="translate(790,1055) scale(0.9)">
+      <circle cx="0" cy="-8" r="6"/><circle cx="7" cy="-3" r="6"/><circle cx="4" cy="6" r="6"/><circle cx="-4" cy="6" r="6"/><circle cx="-7" cy="-3" r="6"/>
+      <circle cx="0" cy="0" r="4" fill="#C9D2C0"/>
+    </g>
+  </g>
+
+  <!-- destellos magicos -->
+  <g fill="#F9F8F3" opacity="0.55">
+    <path d="M260 250 L264 262 L276 266 L264 270 L260 282 L256 270 L244 266 L256 262 Z"/>
+    <path d="M940 220 L943 229 L952 232 L943 235 L940 244 L937 235 L928 232 L937 229 Z"/>
+    <path d="M180 700 L183 709 L192 712 L183 715 L180 724 L177 715 L168 712 L177 709 Z"/>
+    <path d="M1020 980 L1023 989 L1032 992 L1023 995 L1020 1004 L1017 995 L1008 992 L1017 989 Z"/>
+    <path d="M340 1350 L343 1359 L352 1362 L343 1365 L340 1374 L337 1365 L328 1362 L337 1359 Z"/>
+  </g>
+
+  <rect width="1200" height="1600" fill="#262C22" opacity="0.2"/>
+</svg>

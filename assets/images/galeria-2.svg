@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+  <rect width="800" height="1000" fill="#E4E6DC"/>
+  <g stroke="#6E7D64" stroke-width="3" fill="none" opacity="0.5">
+    <path d="M720 940 C 650 780, 600 680, 630 540 C 650 420, 580 340, 600 210"/>
+    <path d="M610 690 C 550 650, 500 635, 450 590"/>
+    <path d="M625 460 C 680 420, 720 405, 760 365"/>
+  </g>
+  <g fill="#6E7D64" opacity="0.55">
+    <ellipse cx="450" cy="590" rx="24" ry="11" transform="rotate(35 450 590)"/>
+    <ellipse cx="760" cy="365" rx="22" ry="10" transform="rotate(-40 760 365)"/>
+  </g>
+  <path d="M160 780 L164 792 L176 796 L164 800 L160 812 L156 800 L144 796 L156 792 Z" fill="#6E7D64" opacity="0.4"/>
+  <text x="50%" y="50%" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#4A4A4A" opacity="0.5" letter-spacing="2">FOTO 2</text>
+</svg>
