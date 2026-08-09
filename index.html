@@ -417,7 +417,7 @@
 
         <div class="form-group">
           <label for="rsvp-nombre">Nombre completo</label>
-          <input type="text" id="rsvp-nombre" name="nombre" required>
+          <input type="text" id="rsvp-nombre" name="nombre" autocomplete="name" required>
           <span class="form-error">Por favor escribe tu nombre</span>
         </div>
 
@@ -433,7 +433,7 @@
 
         <div class="form-group" id="rsvp-acompanantes-group">
           <label for="rsvp-acompanantes">¿Cuántas personas asistirán en total? (contándote)</label>
-          <input type="number" id="rsvp-acompanantes" name="acompanantes" min="1" value="1" inputmode="numeric">
+          <input type="number" id="rsvp-acompanantes" name="acompanantes" min="1" value="1" inputmode="numeric" autocomplete="off">
           <p class="form-hint">Tienes <strong><span class="num-pases">1</span> pase(s)</strong> reservado(s) en esta invitación.</p>
           <span class="form-error">Indica cuántas personas asistirán (no puede superar tus pases)</span>
         </div>
