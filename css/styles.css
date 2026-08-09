@@ -50,6 +50,14 @@ img { border-radius: var(--radius); }
   margin-bottom: var(--space-xs);
 }
 
+.section-flowers {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  margin: 0 auto var(--space-md);
+}
+
 .section-title {
   font-family: var(--font-script);
   font-size: clamp(2.2rem, 6vw, 3.2rem);
@@ -319,6 +327,13 @@ img { border-radius: var(--radius); }
   letter-spacing: 3px;
   font-size: 0.75rem;
   color: var(--color-text-soft);
+}
+
+.envelope__card-flowers {
+  width: 55%;
+  max-width: 120px;
+  height: auto;
+  margin-top: 0.7em;
 }
 
 .envelope__pocket {
