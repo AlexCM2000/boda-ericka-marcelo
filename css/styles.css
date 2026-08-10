@@ -863,14 +863,19 @@ img { border-radius: var(--radius); }
 }
 
 .gift-card__qr {
-  width: 175px;
-  height: 175px;
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 1 / 1;
   flex-shrink: 0;
   object-fit: cover;
   background: #fff;
   padding: 6px;
   box-sizing: border-box;
   border: 1px solid var(--color-accent-light);
+}
+
+@media (min-width: 640px) {
+  .gift-card__qr { width: 190px; max-width: 190px; }
 }
 .gift-card__info p { margin-bottom: 0.4em; }
 #account-number { font-weight: 600; letter-spacing: 1px; }
