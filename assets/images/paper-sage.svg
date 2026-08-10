@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
   <defs>
     <linearGradient id="sageGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#B98A94"/>
-      <stop offset="45%" stop-color="#8C3A4B"/>
-      <stop offset="100%" stop-color="#4a1f28"/>
+      <stop offset="0%" stop-color="#A9707E"/>
+      <stop offset="45%" stop-color="#7A2A3B"/>
+      <stop offset="100%" stop-color="#2E040F"/>
     </linearGradient>
   </defs>
   <rect width="400" height="300" fill="url(#sageGrad)"/>

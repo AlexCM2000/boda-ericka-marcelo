@@ -3,18 +3,18 @@
   --color-bg: #EFEFE9;
   --color-bg-alt: #E6E1E1;
   --color-card: #FBFBF8;
-  --color-accent: #8C3A4B;
-  --color-accent-dark: #5E2331;
-  --color-accent-light: #E1C6CB;
+  --color-accent: #7A2A3B;
+  --color-accent-dark: #470416;
+  --color-accent-light: #D9AEB6;
   --color-text: #4A4A4A;
   --color-text-soft: #7A7A72;
   --color-white: #FFFFFF;
-  --color-overlay: rgba(44, 20, 26, 0.55);
+  --color-overlay: rgba(71, 4, 22, 0.6);
 
   /* Petalos (animacion del sobre) */
   --petal-a: #F3EFE6;
   --petal-b: #D9B8AE;
-  --petal-c: #E1C6CB;
+  --petal-c: #D9AEB6;
 
   /* ===== Tipografia ===== */
   --font-script: 'Parisienne', cursive;

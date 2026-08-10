@@ -238,7 +238,7 @@ img { border-radius: var(--radius); }
   inset: 0;
   overflow: hidden;
   border-radius: var(--radius);
-  background: linear-gradient(135deg, var(--color-accent-dark), #3A1620);
+  background: linear-gradient(135deg, var(--color-accent-dark), #22000A);
   box-shadow:
     0 3px 6px rgba(30, 12, 16, 0.3),
     0 16px 34px rgba(30, 12, 16, 0.35),
@@ -349,7 +349,7 @@ img { border-radius: var(--radius); }
   position: absolute;
   inset: 0;
   z-index: 3;
-  background: linear-gradient(160deg, var(--color-accent-dark), #3A1620);
+  background: linear-gradient(160deg, var(--color-accent-dark), #22000A);
   clip-path: polygon(0% 100%, 100% 100%, 100% 28%, 0% 28%);
   transition: opacity 0.5s ease 0.4s;
 }
