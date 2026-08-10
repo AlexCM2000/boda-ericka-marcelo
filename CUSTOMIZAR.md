@@ -23,10 +23,7 @@ Ajusta el parámetro `dates=` del link de Google Calendar (formato
 - `assets/images/ceremonia.gif`, `recepcion.gif` → íconos de las tarjetas de evento (ya reemplazados)
 - `assets/images/qr.jpeg` → QR real de transferencia (ya reemplazado)
 - `assets/icons/favicon.svg` → tu propio monograma (opcional)
-- `assets/images/sello.svg` → el sello del sobre animado. Si nos pasas tu propia
-  imagen (ideal: circular o cuadrada, buena resolución, fondo simple), la
-  reemplazamos aquí con el mismo nombre, o cambia el `src` del `<img>` dentro
-  de `.envelope__seal` en `index.html`.
+- `assets/images/sello.png` → el sello del sobre animado (ya reemplazado)
 
 ## 5. Ubicaciones (mapas) — [index.html](index.html), sección `#evento`
 Cada botón "Ver ubicación" tiene atributos `data-lat` y `data-lng` con las

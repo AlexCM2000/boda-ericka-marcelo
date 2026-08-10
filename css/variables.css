@@ -1,20 +1,20 @@
 :root {
-  /* ===== Paleta: Verde sage ===== */
+  /* ===== Paleta: Vino ===== */
   --color-bg: #EFEFE9;
-  --color-bg-alt: #E4E6DC;
+  --color-bg-alt: #E6E1E1;
   --color-card: #FBFBF8;
-  --color-accent: #8A9A7E;
-  --color-accent-dark: #6E7D64;
-  --color-accent-light: #C9D2C0;
+  --color-accent: #8C3A4B;
+  --color-accent-dark: #5E2331;
+  --color-accent-light: #E1C6CB;
   --color-text: #4A4A4A;
   --color-text-soft: #7A7A72;
   --color-white: #FFFFFF;
-  --color-overlay: rgba(38, 44, 34, 0.55);
+  --color-overlay: rgba(44, 20, 26, 0.55);
 
   /* Petalos (animacion del sobre) */
   --petal-a: #F3EFE6;
   --petal-b: #D9B8AE;
-  --petal-c: #C9D2C0;
+  --petal-c: #E1C6CB;
 
   /* ===== Tipografia ===== */
   --font-script: 'Parisienne', cursive;

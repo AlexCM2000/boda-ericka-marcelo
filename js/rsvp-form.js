@@ -105,7 +105,7 @@ export function initRsvpForm() {
           particleCount: 120,
           spread: 80,
           origin: { y: 0.6 },
-          colors: ['#8A9A7E', '#C9D2C0', '#FBFBF8'],
+          colors: ['#8C3A4B', '#E1C6CB', '#FBFBF8'],
         });
       }
     } catch {

@@ -238,7 +238,7 @@ img { border-radius: var(--radius); }
   inset: 0;
   overflow: hidden;
   border-radius: var(--radius);
-  background: linear-gradient(135deg, var(--color-accent-dark), #4f5c46);
+  background: linear-gradient(135deg, var(--color-accent-dark), #3A1620);
   box-shadow:
     0 3px 6px rgba(15, 18, 10, 0.3),
     0 16px 34px rgba(15, 18, 10, 0.35),
@@ -349,7 +349,7 @@ img { border-radius: var(--radius); }
   position: absolute;
   inset: 0;
   z-index: 3;
-  background: linear-gradient(160deg, var(--color-accent-dark), #4f5c46);
+  background: linear-gradient(160deg, var(--color-accent-dark), #3A1620);
   clip-path: polygon(0% 100%, 100% 100%, 100% 28%, 0% 28%);
   transition: opacity 0.5s ease 0.4s;
 }
@@ -828,7 +828,15 @@ img { border-radius: var(--radius); }
 
 /* ===================== Compartir / aviso ===================== */
 .share-section__icon { font-size: 2.4rem; color: var(--color-accent); margin-bottom: var(--space-sm); }
-.share-section p, .notice-section p { color: var(--color-text-soft); margin: var(--space-sm) 0 var(--space-md); }
+.share-section p { color: var(--color-text-soft); margin: var(--space-sm) 0 var(--space-md); }
+
+.notice-illustration {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  margin: var(--space-sm) auto 0;
+}
 
 /* ===================== Mesa de regalos ===================== */
 .gift-card {
@@ -848,8 +856,8 @@ img { border-radius: var(--radius); }
 }
 
 .gift-card__qr {
-  width: 140px;
-  height: 140px;
+  width: 175px;
+  height: 175px;
   flex-shrink: 0;
   object-fit: cover;
   background: #fff;
