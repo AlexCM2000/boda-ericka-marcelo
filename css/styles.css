@@ -1,6 +1,6 @@
 /* =========================================================
-   INVITACION DE BODA — Ana & Carlos
-   Paleta: Verde sage · Tipografia: Parisienne + Montserrat
+   INVITACION DE BODA — Marcelo & Ericka
+   Paleta: Vino · Tipografia: Parisienne + Montserrat
    ========================================================= */
 
 html, body {
@@ -221,7 +221,7 @@ img { border-radius: var(--radius); }
   transform: translateX(-50%);
   width: 86%;
   height: 26px;
-  background: radial-gradient(ellipse at center, rgba(8, 12, 6, 0.5), rgba(8, 12, 6, 0) 72%);
+  background: radial-gradient(ellipse at center, rgba(30, 12, 16, 0.5), rgba(30, 12, 16, 0) 72%);
   filter: blur(3px);
   z-index: -1;
 }
@@ -240,9 +240,9 @@ img { border-radius: var(--radius); }
   border-radius: var(--radius);
   background: linear-gradient(135deg, var(--color-accent-dark), #3A1620);
   box-shadow:
-    0 3px 6px rgba(15, 18, 10, 0.3),
-    0 16px 34px rgba(15, 18, 10, 0.35),
-    0 36px 60px rgba(15, 18, 10, 0.2),
+    0 3px 6px rgba(30, 12, 16, 0.3),
+    0 16px 34px rgba(30, 12, 16, 0.35),
+    0 36px 60px rgba(30, 12, 16, 0.2),
     inset 0 0 0 1px rgba(255, 255, 255, 0.07),
     inset 0 1px 0 rgba(255, 255, 255, 0.16);
   z-index: 1;
@@ -277,7 +277,7 @@ img { border-radius: var(--radius); }
   background-color: #F5F0E4;
 
   box-shadow:
-    0 10px 25px rgba(20, 24, 16, 0.28),
+    0 10px 25px rgba(30, 12, 16, 0.28),
     inset 0 0 0 1px rgba(255, 255, 255, 0.65),
     inset 0 1px 1px rgba(255, 255, 255, 0.9),
     inset 0 -1px 3px rgba(120, 110, 95, 0.15);
@@ -302,7 +302,7 @@ img { border-radius: var(--radius); }
   z-index: -1;
   border-radius: 3px;
   background: var(--color-bg-alt);
-  box-shadow: 0 6px 12px rgba(20, 24, 16, 0.18);
+  box-shadow: 0 6px 12px rgba(30, 12, 16, 0.18);
 }
 
 .envelope__card .envelope__eyebrow {
@@ -360,7 +360,7 @@ img { border-radius: var(--radius); }
   position: absolute;
   inset: 0;
   clip-path: inherit;
-  background: linear-gradient(180deg, rgba(10, 14, 8, 0.32) 0%, rgba(10, 14, 8, 0) 14%);
+  background: linear-gradient(180deg, rgba(30, 12, 16, 0.32) 0%, rgba(30, 12, 16, 0) 14%);
   pointer-events: none;
 }
 
@@ -375,7 +375,7 @@ img { border-radius: var(--radius); }
   clip-path: polygon(0 0, 100% 0, 64% 100%, 36% 100%);
   transform-origin: top center;
   backface-visibility: hidden;
-  filter: drop-shadow(0 4px 8px rgba(20, 24, 16, 0.3));
+  filter: drop-shadow(0 4px 8px rgba(30, 12, 16, 0.3));
 }
 
 /* Pliegue de la solapa: leve degrade que sugiere el doblez del papel real */
@@ -386,7 +386,7 @@ img { border-radius: var(--radius); }
   clip-path: inherit;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 10%),
-    linear-gradient(180deg, transparent 72%, rgba(10, 14, 8, 0.3) 100%);
+    linear-gradient(180deg, transparent 72%, rgba(30, 12, 16, 0.3) 100%);
   pointer-events: none;
 }
 
@@ -469,7 +469,7 @@ img { border-radius: var(--radius); }
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: rgba(38, 44, 34, 0.55);
+  background: rgba(44, 20, 26, 0.6);
   color: var(--color-white);
   font-size: 1.3rem;
   display: flex;
@@ -514,7 +514,7 @@ img { border-radius: var(--radius); }
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, var(--color-overlay), rgba(38,44,34,0.75));
+  background: linear-gradient(180deg, var(--color-overlay), rgba(44,20,26,0.75));
   opacity: 0;
   transition: opacity 1.6s ease;
 }
@@ -830,12 +830,19 @@ img { border-radius: var(--radius); }
 .share-section__icon { font-size: 2.4rem; color: var(--color-accent); margin-bottom: var(--space-sm); }
 .share-section p { color: var(--color-text-soft); margin: var(--space-sm) 0 var(--space-md); }
 
+.notice-text {
+  color: var(--color-text-soft);
+  max-width: 32em;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
 .notice-illustration {
   display: block;
   width: 100%;
-  max-width: 260px;
+  max-width: 220px;
   height: auto;
-  margin: var(--space-sm) auto 0;
+  margin: var(--space-md) auto 0;
 }
 
 /* ===================== Mesa de regalos ===================== */
@@ -980,7 +987,7 @@ img { border-radius: var(--radius); }
 .modal__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(38,44,34,0.72);
+  background: rgba(44,20,26,0.72);
   backdrop-filter: blur(3px);
 }
 
