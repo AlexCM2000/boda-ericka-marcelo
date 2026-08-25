@@ -29,7 +29,9 @@ export function initRsvpForm() {
     const asiste = asistencia && asistencia.value === 'si';
     acompanantesGroup.hidden = !asiste;
     if (asiste) {
-      if (acompanantesInput.value === '0') acompanantesInput.value = acompanantesInput.max;
+      if (acompanantesInput.value === '0') {
+        acompanantesInput.value = acompanantesInput.dataset.default || acompanantesInput.max;
+      }
     } else {
       acompanantesInput.value = '0';
     }
