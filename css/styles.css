@@ -608,6 +608,15 @@ img { border-radius: var(--radius); }
   margin-top: 0.3em;
 }
 
+/* Reemplaza la grilla de numeros una vez que la boda ya llego o paso, para
+   no dejar un contador roto o clavado en ceros. */
+.countdown-status {
+  font-family: var(--font-script);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: var(--color-accent-dark);
+  margin-bottom: var(--space-md);
+}
+
 /* ===================== Mensaje ===================== */
 .message__text {
   font-family: var(--font-body);

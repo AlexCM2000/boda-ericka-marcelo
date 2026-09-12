@@ -17,6 +17,12 @@ a { color: inherit; text-decoration: none; }
 
 ul, ol { list-style: none; }
 
+/* El atributo [hidden] por si solo pierde contra cualquier regla de autor
+   que ponga "display" en la misma clase (ej. .btn{display:inline-flex}),
+   porque origen de autor le gana a la hoja de estilos del navegador sin
+   importar la especificidad. Con esto, hidden="" siempre oculta de verdad. */
+[hidden] { display: none !important; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
